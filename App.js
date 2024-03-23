@@ -18,6 +18,9 @@ const App = () => {
     newTodos.splice(index, 1);
     setTodo(newTodos);
   };
+  const removeAll= () =>{
+    setTodo([]);
+  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -34,11 +37,20 @@ const App = () => {
           <Icon
             style={styles.buttonText}
             name="add-outline"
-            color="#cccc"
-            size={30}
+            size={27}
           />
 
         </TouchableOpacity>
+
+        <TouchableOpacity style={styles.rmvallButton} onPress={removeAll}>
+          <Text style={styles.rmvall}>Remove All</Text> 
+          <Icon
+                  style={styles.rmvbuttonText}
+                  name="trash-outline"
+                  size={25}
+                />
+        </TouchableOpacity>
+
       </View>
 
       <View style={styles.wrapper}>
@@ -107,7 +119,7 @@ const styles = StyleSheet.create({
   buttonText: {
     fontSize: 30,
     paddingVertical: 6,
-
+    color:'#fff',
   },
   wrapper: {
     flex: 1, // Occupies remaining space
@@ -127,8 +139,8 @@ const styles = StyleSheet.create({
     color: '#F1E7EB',
   },
   rmvBut: {
-    height: 22,
-    width: 22,
+    height: 23,
+    width: 23,
     borderRadius: 50,
     backgroundColor: '#B63B58',
     justifyContent: 'center',
@@ -138,6 +150,21 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#000000',
   },
+  rmvallButton:{
+    borderColor:'#fffff',
+    backgroundColor:'#736E70',
+    height:50,
+    width:100,
+    borderRadius:24,
+    color:'#fff',
+    padding: 12,
+  },
+  rmvall:{
+    color:'#fff'
+  },
+  rmvbuttonText:{
+    color:'#fff',
+  }
 });
 
 export default App;
