@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, FlatList, TextInput, TouchableOpacity, SafeAreaView } from 'react-native';
 import Icon from "react-native-vector-icons/Ionicons";
+import IconTrash from "react-native-vector-icons/FontAwesome5";
 
 const App = () => {
   const [todo, setTodo] = useState([]);
@@ -24,8 +25,8 @@ const App = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.title}>To Do App</Text>
+       <Text style={styles.title}>To Do App</Text>
+      <View style={styles.smContainer}>
         <TextInput
           style={styles.input}
           placeholder="New task"
@@ -37,18 +38,14 @@ const App = () => {
           <Icon
             style={styles.buttonText}
             name="add-outline"
-            size={27}
+            size={25}
           />
 
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.rmvallButton} onPress={removeAll}>
-          <Text style={styles.rmvall}>Remove All</Text> 
-          <Icon
-                  style={styles.rmvbuttonText}
-                  name="trash-outline"
-                  size={25}
-                />
+          <Text style={styles.rmvall}>Remove All
+          </Text> 
         </TouchableOpacity>
 
       </View>
@@ -62,11 +59,11 @@ const App = () => {
               <TouchableOpacity style={styles.rmvBut} onPress={() => remove(index)}>
                 {/* <Text style={styles.rmvbuttonText}>X</Text> */}
               
-                <Icon
+                <IconTrash
                   style={styles.rmvbuttonText}
-                  name="trash-outline"
+                  name="trash"
                   // color= '#F1E7EB'
-                  size={23}
+                  size={21}
                 />
               </TouchableOpacity>
             </View>
@@ -81,43 +78,46 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F0E6FF', // Light pink background
+    backgroundColor: '#ffff', 
   },
-  header: {
-    backgroundColor: '#FFD3E0', // Light pink for header section
-    paddingHorizontal: 40,
+  smContainer: {
+    // Light pink for header section
+    paddingHorizontal: 30,
     paddingVertical: 20,
     marginBottom: 15,
     borderRadius: 10,
   },
   title: {
+    backgroundColor: '#FFD3E0',
     textAlign: 'center',
-    fontSize: 24,
-    color: '#74788D',
-    marginBottom: 15,
-    fontWeight: 'bold',
+    paddingVertical: 19,
+    fontSize: 26,
+    color: '#000',
+    marginBottom: 3,
+    fontWeight:'600',
+    height:70,
+
   },
   input: {
     height: 60,
     borderRadius: 10,
-    borderColor: '#ffff',
+    borderColor: '#754B88',
     borderWidth: 2,
     padding: 12,
     marginBottom: 10, // Additional margin for spacing
     backgroundColor: '#FFFFFF', // White background for input
   },
   addButton: {
-    backgroundColor: '#B63B58',
-    paddingHorizontal: 13,
-    paddingVertical: 10,
-    height: 60,
+    backgroundColor: '#FE3E6C',
+    paddingVertical: 4,
+    height: 43,
+    width:76,
     color: '#7036C9',
-    borderRadius: 23,
+    borderRadius: 25,
     alignItems: 'center',
-    alignSelf: 'flex-end',
+    alignSelf: 'center',
   },
   buttonText: {
-    fontSize: 30,
     paddingVertical: 6,
     color:'#fff',
   },
@@ -132,42 +132,41 @@ const styles = StyleSheet.create({
     paddingLeft: 15,
     paddingRight: 15,
     borderRadius: 15,
-    backgroundColor: '#736E70',
+    backgroundColor: '#BFBCBC',
     marginVertical: 9,
     marginHorizontal: 20,
   },
   itemText: {
     fontSize: 17,
-    color: '#F1E7EB',
+    color: '#000',
   },
   rmvBut: {
     height: 30,
     width: 30,
     borderRadius: 50,
-    backgroundColor: '#B63B58',
     justifyContent: 'center',
     alignItems: 'center',
   },
-  rmvbuttonText: {
-    fontSize: 16,
-    color: '#000000',
+  rmviconbuttonText: {
+    color: '#ffff',
+    paddingTop:12,
   },
   rmvallButton:{
     borderColor:'#fffff',
-    backgroundColor: '#B63B58',
-    height:60,
-    width:100,
+    backgroundColor: '#FE3E6C',
+    height:40,
+    width:300,
     borderRadius:20,
     color:'#fff',
-    padding: 15,
     justifyContent: 'center',
     alignItems: 'center',
+    marginTop: 10,
   },
   rmvall:{
     color:'#fff'
   },
   rmvbuttonText:{
-    color:'#fff',
+    color:'#494848',
   }
 });
 
