@@ -63,7 +63,7 @@ const App = () => {
                   style={styles.rmvbuttonText}
                   name="trash"
                   // color= '#F1E7EB'
-                  size={21}
+                  size={17}
                 />
               </TouchableOpacity>
             </View>
@@ -132,13 +132,13 @@ const styles = StyleSheet.create({
     paddingLeft: 15,
     paddingRight: 15,
     borderRadius: 15,
-    backgroundColor: '#BFBCBC',
+    backgroundColor: '#F6F4F4',
     marginVertical: 9,
     marginHorizontal: 20,
   },
   itemText: {
-    fontSize: 17,
-    color: '#000',
+    fontSize: 16,
+    color: '#5F5F5F',
   },
   rmvBut: {
     height: 30,
