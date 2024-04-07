@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { StyleSheet, Text, View, FlatList, TextInput, TouchableOpacity, SafeAreaView } from 'react-native';
 import Icon from "react-native-vector-icons/Ionicons";
 import IconTrash from "react-native-vector-icons/FontAwesome5";
@@ -6,6 +6,12 @@ import IconTrash from "react-native-vector-icons/FontAwesome5";
 const App = () => {
   const [todo, setTodo] = useState([]);
   const [newTodoText, setNewTodoText] = useState('');
+
+  useEffect(() => {
+    // Uygulama ilk yüklendiğinde 500 elemanlı bir liste oluşturma
+    const initial = Array.from(Array(500).keys()).map(index => ({ text: `Todo ${index}` }));
+    setTodo(initial);
+  }, []);
 
   const add = () => {
     if (newTodoText.trim()) {
